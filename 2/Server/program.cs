@@ -10,7 +10,7 @@ class MainClass
 {
     public static void Main(string[] args)
     {
-        Console.WriteLine("Hello World!");
+        Console.WriteLine("Server 2!");
 //Начать слушать порт 65432 по адресу 0.0.0.0
         IPAddress addr = IPAddress.Parse("0.0.0.0");
         int port = 65432;
@@ -31,7 +31,9 @@ class MainClass
                 byte[] data = new byte[bytesRec];
                 bytesRec = sock.Receive(data);
                 string message = Encoding.UTF8.GetString(data, 0, bytesRec);
+                Console.Write("----------------\n");
                 Console.Write(message);
+                Console.Write("\n----------------\n");
                 
                 sock.Shutdown(SocketShutdown.Both);
                 sock.Close();
