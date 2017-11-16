@@ -29,22 +29,22 @@ class MainClass
                 Console.WriteLine("Соединение добавлено в очередь");
 //Принимаем соединение.
                 Socket sock = listener.AcceptSocket();
-/*
-Вот здесь надо получить данные, если они есть
-*/  
+                /*
+                Вот здесь надо получить данные, если они есть
+                */
                 int bytesRec = sock.ReceiveBufferSize;
                 byte[] data = new byte[bytesRec];
                 bytesRec = sock.Receive(data);
                 int[] intRec = new int[(bytesRec/sizeof(int))];
-                Buffer.BlockCopy(data, 0, intRec, 0, (intRec.Length * sizeof(int))); 
+                Buffer.BlockCopy(data, 0, intRec, 0, (intRec.Length * sizeof(int)));
                 Console.Write("----------------\n");
                 int i = 0;
-                while(i<intRec.Length){
+                while(i<intRec.Length) {
                     Console.Write("M[{0}] = {1};\n", i, intRec[i]);
                     i++;
                 }
                 Console.Write("\n----------------\n");
-                
+
                 sock.Shutdown(SocketShutdown.Both);
                 sock.Close();
             }
