@@ -5,6 +5,9 @@ using System.Threading;
 using System.Text;
 /*
 Сервер
+
+Непрерывно получает от клиентов данные и считает их
+массивами чисел типа int. Выводит эти массивы.
 */
 namespace ABCDEF
 {
@@ -32,9 +35,14 @@ class MainClass
                 int bytesRec = sock.ReceiveBufferSize;
                 byte[] data = new byte[bytesRec];
                 bytesRec = sock.Receive(data);
-                string message = Encoding.UTF8.GetString(data, 0, bytesRec);
+                int[] intRec = new int[(bytesRec/sizeof(int))];
+                Buffer.BlockCopy(data, 0, intRec, 0, (intRec.Length * sizeof(int))); 
                 Console.Write("----------------\n");
-                Console.Write(message);
+                int i = 0;
+                while(i<intRec.Length){
+                    Console.Write("M[{0}] = {1};\n", i, intRec[i]);
+                    i++;
+                }
                 Console.Write("\n----------------\n");
                 
                 sock.Shutdown(SocketShutdown.Both);

@@ -34,7 +34,7 @@ Console.Write("\nПытаюсь соединиться\n");
 sock.Connect(ep); 
 //Выключаем соединение 
 
-int[] mas = { 1, 2, 3, 4, 5}; 
+int[] mas = { 1024, 65535, 123,9797, 77571}; 
 byte[] bmas = new byte[mas.Length * sizeof(int)]; 
 Buffer.BlockCopy(mas, 0, bmas, 0, bmas.Length); 
 sock.Send(bmas); 
