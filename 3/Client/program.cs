@@ -6,6 +6,8 @@ using System.Text;
 
 /* 
 Клиент
+
+Пять раз отправляет массив чисел типа int на сервер
 */ 
 
 namespace ABCDEF 
