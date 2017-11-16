@@ -16,7 +16,7 @@ class MainClass
 { 
 public static void Main(string[] args) 
 { 
-Console.WriteLine("Client!"); 
+Console.WriteLine("Client 3!"); 
 //Данные о сервере 
 IPAddress srvAddr = IPAddress.Parse("127.0.0.1"); 
 int srvPort = 65432; 

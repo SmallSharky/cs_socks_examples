@@ -15,7 +15,7 @@ class MainClass
 {
     public static void Main(string[] args)
     {
-        Console.WriteLine("Server 2!");
+        Console.WriteLine("Server 3!");
 //Начать слушать порт 65432 по адресу 0.0.0.0
         IPAddress addr = IPAddress.Parse("0.0.0.0");
         int port = 65432;
